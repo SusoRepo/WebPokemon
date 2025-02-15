@@ -1,0 +1,13 @@
+<div class="card flex justify-center">
+  <p-autoComplete
+    [(ngModel)]="selectedPokemon"
+    [suggestions]="filteredPokemons"
+    (completeMethod)="searchPokemon($event)"
+    field="name"
+    (onSelect)="onPokemonSelect()"
+    placeholder="Busca un Pokémon"
+    dropdown
+  >
+  </p-autoComplete>
+</div>
+

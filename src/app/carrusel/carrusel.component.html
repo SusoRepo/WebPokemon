@@ -1,0 +1,21 @@
+<div class="card">
+    <p-carousel >
+        <ng-template let-product #item>
+            <div class="border border-surface rounded-border m-2 p-4">
+                <div class="mb-4">
+                    <div class="relative mx-auto">
+                        <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" [alt]="product.name" class="w-full rounded-border" />
+                        
+                    </div>
+                </div>
+                <div class="mb-4 font-medium">{{ product.name }}</div>
+                <div class="flex justify-between items-center">
+                    <div class="mt-0 font-semibold text-xl">{{ '$' + product.price }}</div>
+                    <span>
+                        
+                    </span>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>
