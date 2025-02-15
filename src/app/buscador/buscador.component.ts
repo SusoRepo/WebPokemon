@@ -2,12 +2,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { PokeapiService } from '../core/services/pokeapi.service.service';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-buscador',
   standalone: true,
-  imports: [FormsModule, AutoCompleteModule, CommonModule], // Reemplaza BrowserModule con CommonModule
+  imports: [FormsModule, AutoCompleteModule, CommonModule],
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.css']
 })
@@ -21,14 +21,13 @@ export class BuscadorComponent implements OnInit {
   constructor(private pokeapiService: PokeapiService) {}
 
   ngOnInit() {
-    this.pokeapiService.getAllPokemons('150').subscribe(data => {
-      console.log(data); // Verifica los datos en la consola
+    this.pokeapiService.getAllPokemons('1000').subscribe(data => {
       this.pokemons = data.results.map((p: any) => ({
         name: p.name,
         id: this.extractPokemonId(p.url)
       }));
     }, error => {
-      console.error('Error al cargar los datos de la API', error); // Manejo de errores
+      console.error('Error al cargar los datos de la API', error);
     });
   }
 
@@ -43,6 +42,6 @@ export class BuscadorComponent implements OnInit {
 
   extractPokemonId(url: string): number {
     const parts = url.split('/');
-    return parseInt(parts[parts.length - 2], 10); // Obtiene el ID desde la URL
+    return parseInt(parts[parts.length - 2], 10);
   }
 }

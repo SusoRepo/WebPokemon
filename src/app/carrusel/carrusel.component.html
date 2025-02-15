@@ -1,21 +1,10 @@
 <div class="card">
-    <p-carousel >
-        <ng-template let-product #item>
-            <div class="border border-surface rounded-border m-2 p-4">
-                <div class="mb-4">
-                    <div class="relative mx-auto">
-                        <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" [alt]="product.name" class="w-full rounded-border" />
-                        
-                    </div>
-                </div>
-                <div class="mb-4 font-medium">{{ product.name }}</div>
-                <div class="flex justify-between items-center">
-                    <div class="mt-0 font-semibold text-xl">{{ '$' + product.price }}</div>
-                    <span>
-                        
-                    </span>
-                </div>
-            </div>
-        </ng-template>
+    <p-carousel [value]="evolutionChain" [numVisible]="1" [numScroll]="1">
+      <ng-template let-evolution pTemplate="item">
+        <div class="border-1 surface-border p-4 m-2 text-center">
+          <img [src]="evolution.image" [alt]="evolution.name" class="w-24 h-24 mx-auto" />
+          <div class="mt-2 font-medium">{{ evolution.name }}</div>
+        </div>
+      </ng-template>
     </p-carousel>
-</div>
+  </div>

@@ -1,7 +1,5 @@
 <div class="container">
-  <app-buscador></app-buscador>
-  <app-carrusel></app-carrusel>
-  <app-tabla></app-tabla>
-</div>
-
-<router-outlet />
+    <app-buscador (pokemonSelected)="onPokemonSelected($event)"></app-buscador>
+    <app-carrusel [selectedPokemon]="selectedPokemon"></app-carrusel>
+    <app-tabla [selectedPokemon]="selectedPokemon"></app-tabla>
+  </div>
